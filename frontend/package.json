@@ -1,0 +1,27 @@
+{
+  "name": "Movie Reccomendation",
+  "version": "1.0.0",
+  "description": "Display books based on song release date",
+  "source": "./index.html",
+  "scripts": {
+    "build": "parcel build --public-url ./ --no-scope-hoist",
+    "dev": "parcel"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "htmlnano": "2.0.3",
+    "parcel": "^2.8.0",
+    "parcel-reporter-static-files-copy": "^1.5.0",
+    "postcss": "^8.4.38",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.3"
+  },
+  "proxy": "http://127.0.0.1:5000"
+}

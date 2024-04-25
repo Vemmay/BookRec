@@ -1,0 +1,67 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+:root {
+  --collection-1-2: 172px;
+  --collection-1-width-1: 74px;
+  --collection-1-width-10: 956px;
+  --collection-1-width-11: 1054px;
+  --collection-1-width-12: 1152px;
+  --collection-1-width-2: 172px;
+  --collection-1-width-3: 270px;
+  --collection-1-width-4: 368px;
+  --collection-1-width-5: 466px;
+  --collection-1-width-6: 564px;
+  --collection-1-width-7: 662px;
+  --collection-1-width-8: 760px;
+  --collection-1-width-9: 858px;
+  --default-shadow: 0px 0px 12px 2px rgba(34, 20, 1, 0.1);
+  --h1-font-family: "Sansita", Helvetica;
+  --h1-font-size: 50px;
+  --h1-font-style: normal;
+  --h1-font-weight: 700;
+  --h1-letter-spacing: 0px;
+  --h1-line-height: normal;
+  --h2-font-family: "Sansita", Helvetica;
+  --h2-font-size: 32px;
+  --h2-font-style: normal;
+  --h2-font-weight: 400;
+  --h2-letter-spacing: 0px;
+  --h2-line-height: normal;
+  --h3-font-family: "Sansita", Helvetica;
+  --h3-font-size: 24px;
+  --h3-font-style: normal;
+  --h3-font-weight: 700;
+  --h3-letter-spacing: 0px;
+  --h3-line-height: normal;
+  --h4-font-family: "Sansita", Helvetica;
+  --h4-font-size: 20px;
+  --h4-font-style: normal;
+  --h4-font-weight: 700;
+  --h4-letter-spacing: 0px;
+  --h4-line-height: normal;
+  --logo-font-family: "Sansita", Helvetica;
+  --logo-font-size: 32px;
+  --logo-font-style: italic;
+  --logo-font-weight: 700;
+  --logo-letter-spacing: 0px;
+  --logo-line-height: normal;
+  --paragraph-body-text-font-family: "Sansita", Helvetica;
+  --paragraph-body-text-font-size: 16px;
+  --paragraph-body-text-font-style: normal;
+  --paragraph-body-text-font-weight: 400;
+  --paragraph-body-text-letter-spacing: -0.32px;
+  --paragraph-body-text-line-height: 120.00000476837158%;
+  --tagline-font-family: "Sansita", Helvetica;
+  --tagline-font-size: 12px;
+  --tagline-font-style: normal;
+  --tagline-font-weight: 400;
+  --tagline-letter-spacing: 0px;
+  --tagline-line-height: normal;
+}
