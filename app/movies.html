@@ -43,12 +43,20 @@
         /* Style the variables */
         .variable {
             color: rgb(186, 83, 255); /* Set variable color to purple */
+            text-decoration: none; 
         }
+
+        .song-title {
+            color: rgb(186, 83, 255); /* Set song title color to purple */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            text-decoration: underline; /* Add underline on hover */
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Your top track is <span class="variable">{{ song }}</span> by <span class="variable">{{ artist }}</span> released in <span class="variable">{{ year }}</span>.</h1>
+        <h1>Your top track is <a href="{{ songurl }}" class="song-title" target="_blank">{{ song }}</a> by <span class="variable">{{ artist }}</span> released in <span class="variable">{{ year }}</span>.</h1>
         <h1 class="movies-heading">The top 10 movies released in {{ year }} are:</h1>
         <ol>
             {% for m in movie %}
