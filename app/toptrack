@@ -42,7 +42,7 @@ def getTrack():
         release_year = track['album']['release_date'][:4] if 'release_date' in track['album'] else "Unknown"
         art = track['artists'][0]['name']
         api_keym = '72160f7c60e3b435deee2c955322bb0b'
-
+        track_url = track['external_urls']['spotify']
         urlm = f'https://api.themoviedb.org/3/discover/movie?api_key={api_keym}&primary_release_year={release_year}&sort_by=popularity.desc'
 
         response = requests.get(urlm)
@@ -53,7 +53,7 @@ def getTrack():
             movies[i] = data['results'][i]['title']
 
 
-        return render_template("movies.html", year=release_year, movie=movies, artist=art, song=track)
+        return render_template("movies.html", year=release_year, movie=movies, artist=art, song=track, songurl = track_url)
     else:
         return render_template("notracks.html")
 
