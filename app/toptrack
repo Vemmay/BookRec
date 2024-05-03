@@ -54,7 +54,7 @@ def getTrack():
         print("user not logged in")
         return redirect('/')
     sp = spotipy.Spotify(auth=token_info['access_token'])
-    top_tracks = sp.current_user_saved_tracks(limit=1)
+    top_tracks = sp.current_user_top_tracks(limit=1, offset = 0, time_range="long_term")
     user_info = sp.current_user()
     user_email = user_info['email']
 
@@ -67,7 +67,7 @@ def getTrack():
 
     if existing_user is None:
         if len(top_tracks['items']) > 0:
-            track = top_tracks['items'][0]
+            track = top_tracks['items']
             release_year = track['album']['release_date'][:4]
             art = track['artists'][0]['name']
             api_keym = '72160f7c60e3b435deee2c955322bb0b'
