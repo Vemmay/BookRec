@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        /* Center the text horizontally */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Use the full height of the viewport */
+            margin: 0; /* Remove default body margin */
+        }
+        /* Style the container div */
+        .container {
+            text-align: center; /* Center the text horizontally */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>No top tracks found.</h1>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</body>
+</html>

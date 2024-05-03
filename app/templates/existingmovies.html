@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        /* Center the text horizontally and vertically */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Use the full height of the viewport */
+            margin: 0; /* Remove default body margin */
+        }
+        /* Style the container div */
+        .container {
+            text-align: center; /* Center the text horizontally */
+        }
+        /* Reset the default margin on ordered lists */
+        ol {
+            margin: 0;
+            padding-left: 1em; /* Add padding to align the text with the rest of the content */
+            list-style-type: none; /* Remove the numbering from the list */
+        }
+        /* Style the logout link */
+        .logout-link {
+            position: absolute; /* Position the link absolutely */
+            bottom: 10px; /* 10px from the bottom */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Center horizontally */
+            text-decoration: none; /* Remove underline */
+            color: blue; /* Set link color */
+        }
+        /* Style the heading */
+        h1 {
+            color: black; /* Set heading color to black */
+        }
+        /* Style the movies heading */
+        .movies-heading {
+            color: rgb(186, 83, 255); /* Set movies heading color to purple */
+        }
+        /* Style the variables */
+        .variable {
+            color: rgb(186, 83, 255); /* Set variable color to purple */
+            text-decoration: none; 
+        }
+
+        .song-title {
+            color: rgb(186, 83, 255); /* Set song title color to purple */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            text-decoration: underline; /* Add underline on hover */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your top track is <a href="{{ songurl }}" class="song-title" target="_blank">{{ song }}</a> by <span class="variable">{{ artist }}</span> released in <span class="variable">{{ year }}</span>.</h1>
+        <h1 class="movies-heading">The top 10 movies released in {{ year }} are:</h1>
+        <ol>
+            {% for m in movie %}
+                <li>{{ m }}</li>
+            {% endfor %}
+        </ol>
+        <h2>Your previous top track was <span class="variable">{{ oldtrack }}</span> released in <span class="variable">{{ oldyr }}</span>.</h2>
+        <a href="{{ url_for('logout') }}" class="logout-link">Logout</a>
+    </div>
+</body>
+</html>
