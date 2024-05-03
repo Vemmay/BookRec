@@ -67,7 +67,7 @@ def getTrack():
 
     if existing_user is None:
         if len(top_tracks['items']) > 0:
-            track = top_tracks['items']
+            track = top_tracks['items'][0]
             release_year = track['album']['release_date'][:4]
             art = track['artists'][0]['name']
             api_keym = '72160f7c60e3b435deee2c955322bb0b'
@@ -99,7 +99,7 @@ def getTrack():
         oldyear = existing_user[2]
 
         if len(top_tracks['items']) > 0:
-            track = top_tracks['items'][0]['track']
+            track = top_tracks['items'][0]
             release_year = track['album']['release_date'][:4]
             art = track['artists'][0]['name']
             api_keym = '72160f7c60e3b435deee2c955322bb0b'
