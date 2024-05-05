@@ -1,4 +1,6 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import queryString from "query-string";
 
 function MovieTitle({ title }) {
   return (
@@ -44,22 +46,33 @@ function MovieDetails({ title, description, posterSrc, posterAlt }) {
 }
 
 export const MovieContainer = () => {
-  const movieData = {
-    title: "Movie Title",
-    description:
-      '"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci a lacinia lacinia, justo magna lacinia lectus, eu interdum nunc purus vel nisl. Fusce malesuada, ligula at varius tempor, lorem nunc consequat ante, nec dapibus orci purus a est. Praesent euismod nisi at nisi consectetur, ut aliquet neque congue. Nam cursus felis sit amet nunc pulvinar, nec dictum erat fringilla. Phasellus in mauris eu justo blandit eleifend vel vel purus. Integer dignissim, sem nec bibendum convallis, mi nisi auctor metus, vel dictum est eros ac tortor. Vestibulum vel nibh nec purus dapibus scelerisque." "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci a lacinia lacinia, justo magna lacinia lectus, eu interdum nunc purus vel nisl. Fusce malesuada, ligula at varius tempor, lorem nunc consequat ante, nec dapibus orci purus a est. Praesent euismod nisi at nisi consectetur, ut aliquet neque congue. Nam cursus felis sit amet nunc pulvinar, nec dictum erat fringilla. Phasellus in mauris eu justo blandit eleifend vel vel purus. Integer dignissim, sem nec bibendum convallis, mi nisi auctor metus, vel dictum est eros ac tortor. Vestibulum vel nibh nec purus dapibus scelerisque."',
-    posterSrc: "../images/img2.jpeg",
-    posterAlt: "Movie poster",
-  };
+  const [movie, setMovie] = useState([]);
+
+  const id = new URLSearchParams(window.location.search).get("id");
+
+  console.log(id);
+  useEffect(() => {
+    if (id) {
+      // Fetch the movie data from the server using the ID in the query parameters
+      fetch(`http://127.0.0.1:5000/movie/${id}`)
+        .then((response) => response.json()) // Parse the JSON
+        .then((data) => {
+          setMovie(data); // Update state with fetched data
+        })
+        .catch((error) => {
+          console.error("Error fetching movie:", error);
+        });
+    }
+  }, [id]);
 
   return (
     <main className="flex justify-center items-center px-16 py-20 max-md:px-5">
       <div className="w-full max-w-[956px] max-md:max-w-full">
         <MovieDetails
-          title={movieData.title}
-          description={movieData.description}
-          posterSrc={movieData.posterSrc}
-          posterAlt={movieData.posterAlt}
+          title={movie.title}
+          description={movie.summary}
+          posterSrc={movie.poster_url}
+          posterAlt={`Poster for ${movie.title}`}
         />
       </div>
     </main>

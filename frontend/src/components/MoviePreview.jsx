@@ -13,7 +13,7 @@ export const MoviePreview = ({
   });
   return (
     <article
-      className={`w-[270px] flex flex-col items-start gap-[10px] p-[10px] h-[367px] overflow-hidden rounded-[10px] bg-[#ffebc4a6] relative ${
+      className={`w-[270px] flex flex-col items-start gap-[10px] p-[10px] overflow-hidden rounded-[10px] bg-[#ffebc4a6] relative ${
         state.property1 === "hover"
           ? "shadow-[0px_2px_12px_2px_#22130026]"
           : "shadow-default-shadow"
@@ -25,15 +25,20 @@ export const MoviePreview = ({
         dispatch("mouse_enter");
       }}
     >
-      <img
-        className="w-full self-stretch grow flex-1 object-cover relative"
-        alt="Img"
-        src={movie.image}
-      />
+      <div className="shadow-inner">
+        <img
+          className="w-full rounded-[10px] self-stretch grow flex-1 object-cover relative"
+          alt="Movie poster"
+          src={movie.poster_url}
+        />
+      </div>
+
       <div className="flex flex-col px-5 pt-2.5 pb-5 mt-2.5 rounded-xl">
-        <h3 className="mt-3 text-xl">{movie.name}</h3>
+        <p className="relative self-stretch mt-[-1.00px] font-h4 font-[number:var(--h4-font-weight)] text-[length:var(--h4-font-size)] tracking-[var(--h4-letter-spacing)] leading-[var(--h4-line-height)] [font-style:var(--h4-font-style)] text-[#ff3649] mt-3 text-xl">
+          {movie.title}
+        </p>
         <Btn
-          className="!border-[unset] !rounded-[20px] !gap-[unset] !flex[0_0_auto] !border-[unset] !px-0 !p-[5px]"
+          className="mt-5 !border-[unset] !rounded-[20px] !gap-[unset] !flex[0_0_auto] !border-[unset] !px-0 !p-[5px]"
           divClassName={
             state.property1 === "hover"
               ? "!text-[#ff3649]"

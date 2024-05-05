@@ -1,19 +1,24 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 import axios from "axios";
+
+const config = {
+  headers: {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+  },
+};
 
 export const LoginOut = ({ property1, className, divClassName }) => {
   const [state, dispatch] = useReducer(reducer, {
     property1: property1 || "default",
   });
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [userData, setUserData] = useState(null);
 
-  // Handle button click
   const handleClick = async () => {
-    try {
-      await axios.get("http://127.0.0.1:5000/login");
-    } catch (error) {
-      console.error("Error checking authentication status:", error);
-    }
+    window.location.href = "http://127.0.0.1:5000/login";
   };
+
   // Render the button
   return (
     <button

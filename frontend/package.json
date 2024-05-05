@@ -1,5 +1,5 @@
 {
-  "name": "Movie Reccomendation",
+  "name": "movierec",
   "version": "1.0.0",
   "description": "Display books based on song release date",
   "source": "./index.html",
@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.24.0",
     "prop-types": "^15.8.1",
+    "query-string": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.1"
